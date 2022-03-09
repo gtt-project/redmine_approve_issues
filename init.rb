@@ -10,14 +10,19 @@ Redmine::Plugin.register :redmine_approve_issues do
   author_url 'https://github.com/georepublic'
   url 'https://github.com/gtt-project/redmine_approve_issues'
   description 'Enables simple approval for Redmine issues'
-  version '0.1.0'
+  version '0.2.0'
 
   requires_redmine :version_or_higher => '4.0.0'
 
   settings(
     default: {
       'approve_allow_abstain' => false,
-      'approve_allow_reject' => false
+      'approve_allow_reject' => false,
+      'approve_allow_cancel' => true,
+      'enabled_for_status' => 0,
+      'approve_to_status' => 0,
+      'approve_condition' => 1,
+      'approve_veto' => false
     },
     partial: 'approve_issues/settings'
   )

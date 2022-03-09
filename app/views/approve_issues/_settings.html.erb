@@ -1,14 +1,65 @@
-<p>
-  <%= content_tag(:label, l(:field_approve_allow_abstain)) %>
-  <%= check_box_tag 'settings[approve_allow_abstain]', true, @settings['approve_allow_abstain'] %>
-</p>
+<div class="box tabular settings">
+  <h3><%= l(:settings_title_allow) %></h3>
 
-<p>
-  <%= content_tag(:label, l(:field_approve_allow_reject)) %>
-  <%= check_box_tag 'settings[approve_allow_reject]', true, @settings['approve_allow_reject'] %>
-</p>
+  <p>
+    <%= content_tag(:label, l(:field_approve_allow_abstain)) %>
+    <%= check_box_tag 'settings[approve_allow_abstain]', true, @settings['approve_allow_abstain'] %>
+  </p>
 
-<p>
-  <%= content_tag(:label, l(:field_approve_allow_cancel)) %>
-  <%= check_box_tag 'settings[approve_allow_cancel]', true, @settings['approve_allow_cancel'] %>
-</p>
+  <p>
+    <%= content_tag(:label, l(:field_approve_allow_reject)) %>
+    <%= check_box_tag 'settings[approve_allow_reject]', true, @settings['approve_allow_reject'] %>
+  </p>
+
+  <p>
+    <%= content_tag(:label, l(:field_approve_allow_cancel)) %>
+    <%= check_box_tag 'settings[approve_allow_cancel]', true, @settings['approve_allow_cancel'] %>
+  </p>
+</div>
+
+<div class="box tabular settings">
+  <h3><%= l(:settings_title_rules) %></h3>
+
+  <p>
+    <%= content_tag(:label, l(:field_enabled_for_status)) %>
+    <%
+      @options = []
+      @options.push([l(:option_enabled_for_status_all),'0'])
+      IssueStatus.all.sort.each do |t|
+        @options.push([t.name,t.id])
+      end
+    %>
+    <%= select_tag "settings[enabled_for_status]",
+      options_for_select(@options, @settings['enabled_for_status']) %>
+  </p>
+
+  <p>
+    <%= content_tag(:label, l(:field_approve_to_status)) %>
+    <%
+      @options = []
+      @options.push([l(:option_approve_to_status_off),'0'])
+      IssueStatus.all.sort.each do |t|
+        @options.push([t.name,t.id])
+      end
+    %>
+    <%= select_tag "settings[approve_to_status]",
+      options_for_select(@options, @settings['approve_to_status']) %>
+  </p>
+
+  <p>
+    <%= content_tag(:label, l(:field_approve_condition)) %>
+    <%= select_tag "settings[approve_condition]",
+      options_for_select([
+        [l(:option_approve_condition_at_least_1), '1'],
+        [l(:option_approve_condition_at_least_2), '2'],
+        [l(:option_approve_condition_at_least_3), '3'],
+        [l(:option_approve_condition_everyone), '0']
+      ],
+      @settings['approve_condition']) %>
+  </p>
+
+  <p>
+    <%= content_tag(:label, l(:field_approve_veto)) %>
+    <%= check_box_tag 'settings[approve_veto]', true, @settings['approve_veto'] %>
+  </p>
+</div>

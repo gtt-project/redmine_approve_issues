@@ -6,7 +6,23 @@ en:
   field_approve_allow_reject: "Allow to reject the approval"
   field_approve_allow_cancel: "Allow to cancel an approval"
 
+  field_enabled_for_status: "Enable approval for status"
+  field_approve_to_status: "Change automatically to issue status"
+  field_approve_condition: "... when approved by"
+  field_approve_veto: "Rejection(s) prevent status change"
+
+  option_enabled_for_status_all: "For any status"
+  option_approve_to_status_off: "Disabled"
+
+  option_approve_condition_at_least_1: "at least 1 approver"
+  option_approve_condition_at_least_2: "at least 2 approvers"
+  option_approve_condition_at_least_3: "at least 3 approvers"
+  option_approve_condition_everyone: "all approvers"
+
   menu_title: "Issue approval"
+
+  settings_title_allow: "Allowed Fields"
+  settings_title_rules: "Approval Rules"
 
   permission_make_approval: "Approve Issues"
   permission_view_approvals: "View approvals"
