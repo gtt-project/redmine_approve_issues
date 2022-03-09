@@ -8,47 +8,53 @@
       <strong><%= l(:menu_title) %></strong>
     </p>
 
-    <div id="approve-target-approve">
-      <span class="approve-count">0</span> <%= l(:view_issues_label_approvals) %>
-      <% if authorize_for('issues', 'view_approvers') %>
-        <span class="approve-list"></span>
-      <% end %>
-    </div>
+    <% if Setting.plugin_redmine_approve_issues['enabled_for_status'] == "0" ||
+          Setting.plugin_redmine_approve_issues['enabled_for_status'] == @issue.status_id.to_s %>
 
-    <% if Setting.plugin_redmine_approve_issues['approve_allow_abstain'] %>
-    <div id="approve-target-abstain">
-      <span class="approve-count">0</span> <%= l(:view_issues_label_abstains) %>
-      <% if authorize_for('issues', 'view_approvers') %>
-        <span class="approve-list"></span>
-      <% end %>
-    </div>
-    <% end %>
-
-    <% if Setting.plugin_redmine_approve_issues['approve_allow_reject'] %>
-    <div id="approve-target-reject">
-      <span class="approve-count">0</span> <%= l(:view_issues_label_rejections) %>
-      <% if authorize_for('issues', 'view_approvers') %>
-        <span class="approve-list"></span>
-      <% end %>
-    </div>
-    <% end %>
-
-    <% if authorize_for('issues', 'make_approval') %>
-
-      <%= button_to(l(:view_issues_my_approve), {:controller => 'approve_issues', :action => 'submit', :issue_id => @issue, :status => 'approve' }, remote: true, class: 'status-edit' ) %>
+      <div id="approve-target-approve">
+        <span class="approve-count">0</span> <%= l(:view_issues_label_approvals) %>
+        <% if authorize_for('issues', 'view_approvers') %>
+          <span class="approve-list"></span>
+        <% end %>
+      </div>
 
       <% if Setting.plugin_redmine_approve_issues['approve_allow_abstain'] %>
-        <%= button_to(l(:view_issues_my_abstain), {:controller => 'approve_issues', :action => 'submit', :issue_id => @issue, :status => 'abstain' }, remote: true, class: 'status-edit' ) %>
+      <div id="approve-target-abstain">
+        <span class="approve-count">0</span> <%= l(:view_issues_label_abstains) %>
+        <% if authorize_for('issues', 'view_approvers') %>
+          <span class="approve-list"></span>
+        <% end %>
+      </div>
       <% end %>
 
       <% if Setting.plugin_redmine_approve_issues['approve_allow_reject'] %>
-        <%= button_to(l(:view_issues_my_reject), {:controller => 'approve_issues', :action => 'submit', :issue_id => @issue, :status => 'reject' }, remote: true, class: 'status-edit' ) %>
+      <div id="approve-target-reject">
+        <span class="approve-count">0</span> <%= l(:view_issues_label_rejections) %>
+        <% if authorize_for('issues', 'view_approvers') %>
+          <span class="approve-list"></span>
+        <% end %>
+      </div>
       <% end %>
 
-      <% if Setting.plugin_redmine_approve_issues['approve_allow_cancel'] %>
-        <%= button_to(l(:view_issues_my_cancel), {:controller => 'approve_issues', :action => 'submit', :issue_id => @issue, :status => 'cancel' }, remote: true, class: 'status-cancel' ) %>
-      <% end %>
+      <% if authorize_for('issues', 'make_approval') %>
 
+        <%= button_to(l(:view_issues_my_approve), {:controller => 'approve_issues', :action => 'submit', :issue_id => @issue, :status => 'approve' }, remote: true, class: 'status-edit' ) %>
+
+        <% if Setting.plugin_redmine_approve_issues['approve_allow_abstain'] %>
+          <%= button_to(l(:view_issues_my_abstain), {:controller => 'approve_issues', :action => 'submit', :issue_id => @issue, :status => 'abstain' }, remote: true, class: 'status-edit' ) %>
+        <% end %>
+
+        <% if Setting.plugin_redmine_approve_issues['approve_allow_reject'] %>
+          <%= button_to(l(:view_issues_my_reject), {:controller => 'approve_issues', :action => 'submit', :issue_id => @issue, :status => 'reject' }, remote: true, class: 'status-edit' ) %>
+        <% end %>
+
+        <% if Setting.plugin_redmine_approve_issues['approve_allow_cancel'] %>
+          <%= button_to(l(:view_issues_my_cancel), {:controller => 'approve_issues', :action => 'submit', :issue_id => @issue, :status => 'cancel' }, remote: true, class: 'status-cancel' ) %>
+        <% end %>
+
+      <% end %>
+    <% else %>
+      <p><%= l(:view_approval_wrong_status) %></p>
     <% end %>
   </div>
 

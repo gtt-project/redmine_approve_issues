@@ -41,3 +41,5 @@ ja:
   field_sum_abstain: "Abstains"
   field_sum_reject: "Rejections"
   field_content_restricted: "---"
+
+  view_approval_wrong_status: "The current status does not allow approval."
