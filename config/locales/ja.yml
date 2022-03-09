@@ -1,0 +1,27 @@
+# Japanese strings go here for Rails i18n
+ja:
+  project_module_approve_issues: "Approve Issues"
+
+  field_approve_allow_abstain: "Allow to abstain from approval"
+  field_approve_allow_reject: "Allow to reject the approval"
+  field_approve_allow_cancel: "Allow to cancel an approval"
+
+  menu_title: "Issue approval"
+
+  permission_make_approval: "Approve Issues"
+  permission_view_approvals: "View approvals"
+  permission_view_approvers: "View approvers"
+
+  view_issues_label_approvals: "Approvals"
+  view_issues_label_abstains: "Withdrawals"
+  view_issues_label_rejections: "Rejections"
+
+  view_issues_my_approve: "Approve"
+  view_issues_my_abstain: "Abstain"
+  view_issues_my_reject: "Reject"
+  view_issues_my_cancel: "Cancel"
+
+  field_sum_approve: "Approvals"
+  field_sum_abstain: "Abstains"
+  field_sum_reject: "Rejections"
+  field_content_restricted: "---"

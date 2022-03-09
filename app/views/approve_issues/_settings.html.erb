@@ -1,0 +1,14 @@
+<p>
+  <%= content_tag(:label, l(:field_approve_allow_abstain)) %>
+  <%= check_box_tag 'settings[approve_allow_abstain]', true, @settings['approve_allow_abstain'] %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:field_approve_allow_reject)) %>
+  <%= check_box_tag 'settings[approve_allow_reject]', true, @settings['approve_allow_reject'] %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:field_approve_allow_cancel)) %>
+  <%= check_box_tag 'settings[approve_allow_cancel]', true, @settings['approve_allow_cancel'] %>
+</p>

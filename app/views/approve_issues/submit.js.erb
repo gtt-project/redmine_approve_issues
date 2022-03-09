@@ -1,0 +1,13 @@
+<% if User.current.allowed_to?(:view_approvals, nil, :global => true) %>
+approve_issues.updateCount(<%= ApproveIssues.getCount(@issue_id,"approve") %>, "approve");
+approve_issues.updateCount(<%= ApproveIssues.getCount(@issue_id,"abstain") %>, "abstain");
+approve_issues.updateCount(<%= ApproveIssues.getCount(@issue_id,"reject")  %>, "reject");
+<% end %>
+
+<% if User.current.allowed_to?(:view_approvers, nil, :global => true) %>
+approve_issues.updateList(<%= ApproveIssues.getList(@issue_id,"approve") %>, "approve");
+approve_issues.updateList(<%= ApproveIssues.getList(@issue_id,"abstain") %>, "abstain");
+approve_issues.updateList(<%= ApproveIssues.getList(@issue_id,"reject")  %>, "reject");
+<% end %>
+
+approve_issues.toggleButtons(<%= ApproveIssues.getMy(@issue_id) %>);
