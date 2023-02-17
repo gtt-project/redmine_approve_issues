@@ -1,5 +1,3 @@
-# require_dependency 'issue_query'
-
 module RedmineApproveIssues
   module QueryPatch
 

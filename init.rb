@@ -1,8 +1,6 @@
-require 'redmine'
-
-Rails.configuration.to_prepare do
-  RedmineApproveIssues.setup
-end
+# Global Hooks
+require File.expand_path('../lib/redmine_approve_issues/view_hooks', __FILE__)
+require File.expand_path('../lib/redmine_approve_issues/query_patch', __FILE__)
 
 Redmine::Plugin.register :redmine_approve_issues do
   name 'Redmine Approve Issues'
@@ -10,7 +8,7 @@ Redmine::Plugin.register :redmine_approve_issues do
   author_url 'https://github.com/georepublic'
   url 'https://github.com/gtt-project/redmine_approve_issues'
   description 'Enables simple approval for Redmine issues'
-  version '0.2.0'
+  version '0.3.0'
 
   requires_redmine :version_or_higher => '4.0.0'
 
@@ -33,4 +31,8 @@ Redmine::Plugin.register :redmine_approve_issues do
     permission :view_approvers, {:issues => :view_approvers}, :require => :loggedin
   end
 
+end
+
+Rails.configuration.to_prepare do
+  RedmineApproveIssues.setup
 end

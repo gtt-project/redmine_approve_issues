@@ -1,6 +1,3 @@
-require 'redmine_approve_issues/view_hooks'
-require_dependency 'redmine_approve_issues/query_column'
-
 module RedmineApproveIssues
 
   def self.setup
