@@ -1,1 +1,32 @@
-{}
+project_module_approve_issues: Godkänna frågor
+field_approve_allow_abstain: Tillåt att avstå från godkännande
+field_approve_allow_reject: Tillåt att avvisa godkännandet
+field_approve_allow_cancel: Tillåt att avbryta ett godkännande
+field_enabled_for_status: Aktivera godkännande för status
+field_approve_to_status: Ändra automatiskt till emissionsstatus
+field_approve_condition: '... efter godkännande av'
+field_approve_veto: Avvisning(ar) förhindrar statusförändring
+option_enabled_for_status_all: För varje status
+option_approve_to_status_off: Inaktiverad
+option_approve_condition_at_least_1: minst 1 godkännare
+option_approve_condition_at_least_2: minst 2 godkännare
+option_approve_condition_at_least_3: minst 3 godkännare
+option_approve_condition_everyone: alla godkännare
+menu_title: Godkännande av utfärdande
+settings_title_allow: Tillåtna fält
+settings_title_rules: Regler för godkännande
+permission_make_approval: Godkänna frågor
+permission_view_approvals: Visa godkännanden
+permission_view_approvers: Visa godkännare
+view_issues_label_approvals: Godkännanden
+view_issues_label_abstains: Uttag
+view_issues_label_rejections: Avslag
+view_issues_my_approve: Godkänn
+view_issues_my_abstain: Avstår från att rösta
+view_issues_my_reject: Avvisa
+view_issues_my_cancel: Avbryt
+field_sum_approve: Godkännanden
+field_sum_abstain: Avstår från att rösta
+field_sum_reject: Avslag
+field_content_restricted: '---'
+view_approval_wrong_status: Den nuvarande statusen tillåter inte godkännande.
